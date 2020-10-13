@@ -1,0 +1,80 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "docker-build",
+			"label": "docker-build",
+			"platform": "python",
+			"dockerBuild": {
+				"tag": "dlbioexample:latest",
+				"dockerfile": "${workspaceFolder}/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			}
+		},
+		{
+			// For starting the currently in the editor selected file:
+			"type": "docker-run",
+			"label": "docker-run: debug current",
+			"dependsOn": [],
+			"dockerRun": {
+				"image": "dl_workingdir",
+				"volumes": [
+					// Add further path-mappings if you mount data, etc.
+					{
+						"localPath": "${workspaceFolder}",
+						"containerPath": "/workingdir",
+						"permissions": "rw"
+					},
+					{
+						"localPath": "$HOME",
+						"containerPath": "/data:rw\" --gpus all --user $(id -u):$(id -g) --label \"",
+						"permissions": "rw"
+					}
+				],
+				"containerName": "dl",
+				"ports": [
+					{
+						"containerPort": 8888,
+						"hostPort": 8888,
+					}
+				]
+			},
+			"python": {
+				"file": "${relativeFile}",
+			}
+		},
+		{
+			// For starting the programs main file:
+			"type": "docker-run",
+			"label": "docker-run: debug general",
+			"dependsOn": [],
+			"dockerRun": {
+				"image": "dl_workingdir",
+				"volumes": [
+                    // Add further path-mappings if you mount data, etc.
+					{
+						"localPath": "${workspaceFolder}",
+						"containerPath": "/workingdir",
+						"permissions": "rw"
+					},
+					{
+						"localPath": "$HOME",
+						"containerPath": "/data:rw\" --gpus all --user $(id -u):$(id -g) --label \"",
+						"permissions": "rw"
+					}
+				],
+				"containerName": "dl",
+				"ports": [
+					{
+						"containerPort": 8888,
+						"hostPort": 8888,
+					}
+				]
+			},
+			"python": {
+				"file": "main.py",
+			}
+		}
+	]
+}

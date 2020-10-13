@@ -1,0 +1,52 @@
+{
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // This configuration is used to debug the file that is selected in the editor
+            "name": "Docker: Python - Current",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug current",
+            "python": {
+                "pathMappings": [
+                    // Add further path-mappings if you mount data, etc.
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/workingdir"
+                    },
+                    {
+                        "localRoot": "${env:HOME}",
+                        "remoteRoot": "/data"
+                    }
+                ],
+                "projectType": "general",
+                "justMyCode": false
+            }
+        },
+        {
+            // This configuration is used to debug the project from its starting point
+            "name": "Docker: Python - General",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug general",
+            "python": {
+                "pathMappings": [
+                    // Add further path-mappings if you mount data, etc.
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/workingdir"
+                    },
+                    {
+                        "localRoot": "${env:HOME}",
+                        "remoteRoot": "/data"
+                    }
+                ],
+                "projectType": "general",
+                "justMyCode": false
+            }
+        }
+    ]
+}
