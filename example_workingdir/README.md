@@ -42,3 +42,8 @@ This example illustrates how to transition from using python, jupyter notebooks,
     `./run_jupyter.sh`
 
    Apart from running a different command, this will also make the http server of the jupyter notebook accessible on the host port `8888` by passing connections on this port on to the container.
+
+### Debugging:
+
+The Debugger has two options. Select "Docker: Python - General" to start debugging the project from its main file. Select "Docker: Python - Current" to start debugging the currently in the editor selected file.
+More configurations can be added or present configurations can be changed in the ./vscode/launch.json and ./vscode/tasks.json.
