@@ -15,16 +15,17 @@
                     // Add further path-mappings if you mount data, etc.
                     {
                         "localRoot": "${workspaceFolder}",
-                        "remoteRoot": "/workingdir"
+                        "remoteRoot": "/workingdir",
                     },
                     {
                         "localRoot": "${env:HOME}",
-                        "remoteRoot": "/data"
+                        "remoteRoot": "/data",
                     }
                 ],
                 "projectType": "general",
-                "justMyCode": false
-            }
+                "justMyCode": false,
+            },
+            "pythonPath": "python3",
         },
         {
             // This configuration is used to debug the project from its starting point
@@ -37,16 +38,17 @@
                     // Add further path-mappings if you mount data, etc.
                     {
                         "localRoot": "${workspaceFolder}",
-                        "remoteRoot": "/workingdir"
+                        "remoteRoot": "/workingdir",
                     },
                     {
                         "localRoot": "${env:HOME}",
-                        "remoteRoot": "/data"
+                        "remoteRoot": "/data",
                     }
                 ],
                 "projectType": "general",
-                "justMyCode": false
-            }
-        }
+                "justMyCode": false,
+            },
+            "pythonPath": "python3",
+        },
     ]
 }
